@@ -12,7 +12,7 @@ class Card extends React.Component {
         <p>Profile:<a href={this.props.data.html_url}>{this.props.data.html_url}</a></p>
                     <p>{`Followers: ${this.props.data.followers}`}</p>
                     <p>{`Following: ${this.props.data.following}`}</p>
-                    <p>Bio:</p>
+                    <p>{`Following: ${this.props.data.bio}`}</p>
                 </div>
             </div>
         )
