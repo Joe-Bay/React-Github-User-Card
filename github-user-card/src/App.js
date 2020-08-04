@@ -29,16 +29,21 @@ class App extends React.Component {
         githubData: res.data
       })
     })
-    axios.get(`https://api.github.com/users/${this.state.userText}/followers`)
-    .then(res => {
-      console.log(res.data)
-      this.setState({
-        gitHubFollowers: res.data
-      })
-    })
     this.setState({
       userText:''
     })
+  }
+
+  componentDidUpdate(prevState, prevProps) {
+    if(prevState !== this.state.gitHubFollowers){
+      axios.get(`https://api.github.com/users/${this.state.userText}/followers`)
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          gitHubFollowers: res.data
+        })
+      })
+    }
   }
 
   componentDidMount() {
